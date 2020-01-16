@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Version>1.0</Version>
+    <Version>1.1</Version>
     <Authors>Antti Konsta Kustaa</Authors>
     <Company></Company>
     <PackageProjectUrl>https://github.com/am9417/assert-extensions</PackageProjectUrl>
@@ -11,9 +11,11 @@
     <PackageLicenseUrl>https://www.apache.org/licenses/LICENSE-2.0.txt</PackageLicenseUrl>
     <PackageTags>testing, unittest, assert, assertion, extension, test, viewmodel, view, model</PackageTags>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageId>Assertion_Extensions_am9417</PackageId>
+    <PackageId>ViewModelAssertions</PackageId>
     <RepositoryUrl>https://github.com/am9417/assert-extensions</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
+    <PackageIconUrl>https://raw.githubusercontent.com/am9417/assert-extensions/master/Icons/nuget_logo.png</PackageIconUrl>
+    <PackageReleaseNotes>Renamed the package, added a logo</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
