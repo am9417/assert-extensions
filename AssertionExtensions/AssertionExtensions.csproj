@@ -3,6 +3,17 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Version>1.0</Version>
+    <Authors>Antti Konsta Kustaa</Authors>
+    <Company></Company>
+    <PackageProjectUrl>https://github.com/am9417/assert-extensions</PackageProjectUrl>
+    <Description>Extensions for VisualStudio UnitTest's Assert class to simplify e.g. testing of view models.</Description>
+    <PackageLicenseUrl>https://www.apache.org/licenses/LICENSE-2.0.txt</PackageLicenseUrl>
+    <PackageTags>testing, unittest, assert, assertion, extension, test, viewmodel, view, model</PackageTags>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageId>Assertion_Extensions_am9417</PackageId>
+    <RepositoryUrl>https://github.com/am9417/assert-extensions</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
