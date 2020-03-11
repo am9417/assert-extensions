@@ -40,6 +40,13 @@ namespace AssertionExtensions.Tests.ExtensionTests
             Assert.IsTrue((DateTime.Now - start).TotalMilliseconds > 500);
         }
 
+
+        private static void Example()
+        {
+            System.ComponentModel.INotifyPropertyChanged o = null;
+            Assert.That.Property(o, "status").IsEqualTo(32).After(() => o.GetType());
+        }
+
         [TestMethod]
         public async Task TestPropertyEqualityWithNull()
         {

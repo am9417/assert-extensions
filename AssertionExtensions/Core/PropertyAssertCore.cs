@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -59,6 +60,13 @@ namespace AssertionExtensions.Core
 
                 throw new AssertFailedException(message);
             }
+        }
+
+        internal static void CheckObservablePropertyEquality<T>(T expected, INotifyPropertyChanged model, string propertyName,
+            bool assertEquality = true, int timeout = Constants.DEFAULT_TIMEOUT, string message = null, params object[] parameters)
+        {
+            var comparer = EqualityComparer<T>.Default;
+
         }
     }
 }
