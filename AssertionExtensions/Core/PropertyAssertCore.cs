@@ -53,7 +53,7 @@ namespace AssertionExtensions.Core
             if (!result)
             {
                 string defaultMessage = 
-                    $"Assert.Property{(assertEquality ? "" : "Not")}Equals failed. {(assertEquality ? "Not" : "")}Expected:<{expected}>. Actual:<{actual}>.";
+                    $"Assert.Property{(assertEquality ? "" : "Not")}Equals failed. {(!assertEquality ? "Not" : "")}Expected:<{expected}>. Actual:<{actual}>.";
                 message = message ?? defaultMessage;
                 message = parameters == null ? message : string.Format(message, parameters);
 
