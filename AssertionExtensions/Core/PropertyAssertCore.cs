@@ -66,7 +66,57 @@ namespace AssertionExtensions.Core
             bool assertEquality = true, int timeout = Constants.DEFAULT_TIMEOUT, string message = null, params object[] parameters)
         {
             var comparer = EqualityComparer<T>.Default;
+            bool match = false;
+            T actual = default(T);
 
+            void propertyChanged(object sender, PropertyChangedEventArgs e)
+            {
+                if (e.PropertyName == propertyName)
+                {
+                    actual = (T)Utils.GetPropertyValue(model, propertyName);
+
+                    if (Utils.Evaluate(comparer.Equals(actual, expected), assertEquality))
+                    {
+                        match = true;
+                    }
+                }
+            }
+
+            try
+            {
+                model.PropertyChanged += propertyChanged;
+
+                DateTime start = DateTime.Now;
+
+                while (!match && (DateTime.Now - start).TotalMilliseconds < timeout)
+                {
+                    Task.Delay(timeout / 100).Wait();
+                }
+
+                if (!match)
+                {
+                    string defaultMessage =
+                        $"Assert.Property{(assertEquality ? "" : "Not")}Equals failed. {(!assertEquality ? "Not" : "")}Expected:<{expected}>. Actual:<{actual}>.";
+                    message = message ?? defaultMessage;
+                    message = parameters == null ? message : string.Format(message, parameters);
+
+                    throw new AssertFailedException(message);
+                }
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                model.PropertyChanged -= propertyChanged;
+            }
+        }
+
+        internal static void CheckPropertyEquality<T>(T expected, INotifyPropertyChanged model, string propertyName,
+            bool assertEquality = true, int timeout = Constants.DEFAULT_TIMEOUT, string message = null, params object[] parameters)
+        {
+            throw new NotImplementedException();
         }
     }
 }
