@@ -14,6 +14,11 @@ namespace AssertionExtensions.Tests.Models
             get => _observableProperty;
             set
             {
+                if (_observableProperty?.Equals(value) ?? false)
+                {
+                    return;
+                }
+
                 _observableProperty = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TestProperty"));
             }
